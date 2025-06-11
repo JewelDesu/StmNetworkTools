@@ -2,12 +2,13 @@
 
 Ethernet bridge tool:
 
-
+```
 cd Ethernet
 
 chmod +x AUTO_BRIDGE.sh
 
 ./AUTO_BRIDGE.sh
+```
 
 =====================================
 
