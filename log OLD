@@ -1,0 +1,349 @@
+Udevadm info starts with the device specified by the devpath and then
+walks up the chain of parent devices. It prints for every device
+found, all possible attributes in the udev rules key format.
+A rule to match, can be composed by the attributes of the device
+and the attributes from one single parent device.
+
+  looking at device '/devices/platform/soc/5800d000.usb/usb2/2-1/2-1.4/2-1.4:1.2/ttyUSB2/tty/ttyUSB2':
+    KERNEL=="ttyUSB2"
+    SUBSYSTEM=="tty"
+    DRIVER==""
+    ATTR{power/control}=="auto"
+    ATTR{power/runtime_active_time}=="0"
+    ATTR{power/runtime_status}=="unsupported"
+    ATTR{power/runtime_suspended_time}=="0"
+
+  looking at parent device '/devices/platform/soc/5800d000.usb/usb2/2-1/2-1.4/2-1.4:1.2/ttyUSB2':
+    KERNELS=="ttyUSB2"
+    SUBSYSTEMS=="usb-serial"
+    DRIVERS=="option1"
+    ATTRS{port_number}=="0"
+    ATTRS{power/control}=="auto"
+    ATTRS{power/runtime_active_time}=="0"
+    ATTRS{power/runtime_status}=="unsupported"
+    ATTRS{power/runtime_suspended_time}=="0"
+
+  looking at parent device '/devices/platform/soc/5800d000.usb/usb2/2-1/2-1.4/2-1.4:1.2':
+    KERNELS=="2-1.4:1.2"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="option"
+    ATTRS{authorized}=="1"
+    ATTRS{bAlternateSetting}==" 0"
+    ATTRS{bInterfaceClass}=="ff"
+    ATTRS{bInterfaceNumber}=="02"
+    ATTRS{bInterfaceProtocol}=="00"
+    ATTRS{bInterfaceSubClass}=="00"
+    ATTRS{bNumEndpoints}=="03"
+    ATTRS{supports_autosuspend}=="1"
+
+  looking at parent device '/devices/platform/soc/5800d000.usb/usb2/2-1/2-1.4':
+    KERNELS=="2-1.4"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="usb"
+    ATTRS{authorized}=="1"
+    ATTRS{avoid_reset_quirk}=="0"
+    ATTRS{bConfigurationValue}=="1"
+    ATTRS{bDeviceClass}=="00"
+    ATTRS{bDeviceProtocol}=="00"
+    ATTRS{bDeviceSubClass}=="00"
+    ATTRS{bMaxPacketSize0}=="64"
+    ATTRS{bMaxPower}=="500mA"
+    ATTRS{bNumConfigurations}=="1"
+    ATTRS{bNumInterfaces}==" 6"
+    ATTRS{bcdDevice}=="0318"
+    ATTRS{bmAttributes}=="a0"
+    ATTRS{busnum}=="2"
+    ATTRS{configuration}==""
+    ATTRS{devnum}=="3"
+    ATTRS{devpath}=="1.4"
+    ATTRS{devspec}=="(null)"
+    ATTRS{idProduct}=="9001"
+    ATTRS{idVendor}=="1e0e"
+    ATTRS{ltm_capable}=="no"
+    ATTRS{manufacturer}=="SimTech, Incorporated"
+    ATTRS{maxchild}=="0"
+    ATTRS{power/active_duration}=="112270"
+    ATTRS{power/autosuspend}=="2"
+    ATTRS{power/autosuspend_delay_ms}=="2000"
+    ATTRS{power/connected_duration}=="112260"
+    ATTRS{power/control}=="on"
+    ATTRS{power/level}=="on"
+    ATTRS{power/persist}=="1"
+    ATTRS{power/runtime_active_time}=="111988"
+    ATTRS{power/runtime_status}=="active"
+    ATTRS{power/runtime_suspended_time}=="0"
+    ATTRS{power/wakeup}=="disabled"
+    ATTRS{power/wakeup_abort_count}==""
+    ATTRS{power/wakeup_active}==""
+    ATTRS{power/wakeup_active_count}==""
+    ATTRS{power/wakeup_count}==""
+    ATTRS{power/wakeup_expire_count}==""
+    ATTRS{power/wakeup_last_time_ms}==""
+    ATTRS{power/wakeup_max_time_ms}==""
+    ATTRS{power/wakeup_total_time_ms}==""
+    ATTRS{product}=="SimTech, Incorporated"
+    ATTRS{quirks}=="0x0"
+    ATTRS{removable}=="unknown"
+    ATTRS{remove}=="(not readable)"
+    ATTRS{rx_lanes}=="1"
+    ATTRS{serial}=="0123456789ABCDEF"
+    ATTRS{speed}=="480"
+    ATTRS{tx_lanes}=="1"
+    ATTRS{urbnum}=="281"
+    ATTRS{version}==" 2.00"
+
+  looking at parent device '/devices/platform/soc/5800d000.usb/usb2/2-1':
+    KERNELS=="2-1"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="onboard-usb-hub"
+    ATTRS{authorized}=="1"
+    ATTRS{avoid_reset_quirk}=="0"
+    ATTRS{bConfigurationValue}=="1"
+    ATTRS{bDeviceClass}=="09"
+    ATTRS{bDeviceProtocol}=="02"
+    ATTRS{bDeviceSubClass}=="00"
+    ATTRS{bMaxPacketSize0}=="64"
+    ATTRS{bMaxPower}=="2mA"
+    ATTRS{bNumConfigurations}=="1"
+    ATTRS{bNumInterfaces}==" 1"
+    ATTRS{bcdDevice}=="0bb3"
+    ATTRS{bmAttributes}=="e0"
+    ATTRS{busnum}=="2"
+    ATTRS{configuration}==""
+    ATTRS{devnum}=="2"
+    ATTRS{devpath}=="1"
+    ATTRS{idProduct}=="2514"
+    ATTRS{idVendor}=="0424"
+    ATTRS{ltm_capable}=="no"
+    ATTRS{maxchild}=="4"
+    ATTRS{power/active_duration}=="112860"
+    ATTRS{power/autosuspend}=="0"
+    ATTRS{power/autosuspend_delay_ms}=="0"
+    ATTRS{power/connected_duration}=="112870"
+    ATTRS{power/control}=="auto"
+    ATTRS{power/level}=="auto"
+    ATTRS{power/runtime_active_time}=="112515"
+    ATTRS{power/runtime_status}=="active"
+    ATTRS{power/runtime_suspended_time}=="0"
+    ATTRS{power/wakeup}=="disabled"
+    ATTRS{power/wakeup_abort_count}==""
+    ATTRS{power/wakeup_active}==""
+    ATTRS{power/wakeup_active_count}==""
+    ATTRS{power/wakeup_count}==""
+    ATTRS{power/wakeup_expire_count}==""
+    ATTRS{power/wakeup_last_time_ms}==""
+    ATTRS{power/wakeup_max_time_ms}==""
+    ATTRS{power/wakeup_total_time_ms}==""
+    ATTRS{quirks}=="0x0"
+    ATTRS{removable}=="unknown"
+    ATTRS{remove}=="(not readable)"
+    ATTRS{rx_lanes}=="1"
+    ATTRS{speed}=="480"
+    ATTRS{tx_lanes}=="1"
+    ATTRS{urbnum}=="29"
+    ATTRS{version}==" 2.00"
+
+  looking at parent device '/devices/platform/soc/5800d000.usb/usb2':
+    KERNELS=="usb2"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="usb"
+    ATTRS{authorized}=="1"
+    ATTRS{authorized_default}=="1"
+    ATTRS{avoid_reset_quirk}=="0"
+    ATTRS{bConfigurationValue}=="1"
+    ATTRS{bDeviceClass}=="09"
+    ATTRS{bDeviceProtocol}=="00"
+    ATTRS{bDeviceSubClass}=="00"
+    ATTRS{bMaxPacketSize0}=="64"
+    ATTRS{bMaxPower}=="0mA"
+    ATTRS{bNumConfigurations}=="1"
+    ATTRS{bNumInterfaces}==" 1"
+    ATTRS{bcdDevice}=="0601"
+    ATTRS{bmAttributes}=="e0"
+    ATTRS{busnum}=="2"
+    ATTRS{configuration}==""
+    ATTRS{devnum}=="1"
+    ATTRS{devpath}=="0"
+    ATTRS{idProduct}=="0002"
+    ATTRS{idVendor}=="1d6b"
+    ATTRS{interface_authorized_default}=="1"
+    ATTRS{ltm_capable}=="no"
+    ATTRS{manufacturer}=="Linux 6.1.28 ehci_hcd"
+    ATTRS{maxchild}=="2"
+    ATTRS{power/active_duration}=="113070"
+    ATTRS{power/autosuspend}=="0"
+    ATTRS{power/autosuspend_delay_ms}=="0"
+    ATTRS{power/connected_duration}=="113060"
+    ATTRS{power/control}=="auto"
+    ATTRS{power/level}=="auto"
+    ATTRS{power/runtime_active_time}=="113029"
+    ATTRS{power/runtime_status}=="active"
+    ATTRS{power/runtime_suspended_time}=="0"
+    ATTRS{power/wakeup}=="disabled"
+    ATTRS{power/wakeup_abort_count}==""
+    ATTRS{power/wakeup_active}==""
+    ATTRS{power/wakeup_active_count}==""
+    ATTRS{power/wakeup_count}==""
+    ATTRS{power/wakeup_expire_count}==""
+    ATTRS{power/wakeup_last_time_ms}==""
+    ATTRS{power/wakeup_max_time_ms}==""
+    ATTRS{power/wakeup_total_time_ms}==""
+    ATTRS{product}=="EHCI Host Controller"
+    ATTRS{quirks}=="0x0"
+    ATTRS{removable}=="unknown"
+    ATTRS{remove}=="(not readable)"
+    ATTRS{rx_lanes}=="1"
+    ATTRS{serial}=="5800d000.usb"
+    ATTRS{speed}=="480"
+    ATTRS{tx_lanes}=="1"
+    ATTRS{urbnum}=="24"
+    ATTRS{version}==" 2.00"
+
+  looking at parent device '/devices/platform/soc/5800d000.usb':
+    KERNELS=="5800d000.usb"
+    SUBSYSTEMS=="platform"
+    DRIVERS=="ehci-platform"
+    ATTRS{companion}==""
+    ATTRS{driver_override}=="(null)"
+    ATTRS{power/control}=="auto"
+    ATTRS{power/runtime_active_time}=="0"
+    ATTRS{power/runtime_status}=="unsupported"
+    ATTRS{power/runtime_suspended_time}=="0"
+    ATTRS{power/wakeup}=="disabled"
+    ATTRS{power/wakeup_abort_count}==""
+    ATTRS{power/wakeup_active}==""
+    ATTRS{power/wakeup_active_count}==""
+    ATTRS{power/wakeup_count}==""
+    ATTRS{power/wakeup_expire_count}==""
+    ATTRS{power/wakeup_last_time_ms}==""
+    ATTRS{power/wakeup_max_time_ms}==""
+    ATTRS{power/wakeup_total_time_ms}==""
+    ATTRS{uframe_periodic_max}=="100"
+
+  looking at parent device '/devices/platform/soc':
+    KERNELS=="soc"
+    SUBSYSTEMS=="platform"
+    DRIVERS=="simple-pm-bus"
+    ATTRS{driver_override}=="(null)"
+    ATTRS{power/control}=="auto"
+    ATTRS{power/runtime_active_time}=="0"
+    ATTRS{power/runtime_status}=="unsupported"
+    ATTRS{power/runtime_suspended_time}=="0"
+
+  looking at parent device '/devices/platform':
+    KERNELS=="platform"
+    SUBSYSTEMS==""
+    DRIVERS==""
+    ATTRS{power/control}=="auto"
+    ATTRS{power/runtime_active_time}=="0"
+    ATTRS{power/runtime_status}=="unsupported"
+    ATTRS{power/runtime_suspended_time}=="0"
+
+
+
+
+
+
+lrwxrwxrwx 1 root   root           7 Feb  5 13:47 modemAT -> ttyUSB2
+lrwxrwxrwx 1 root   root           7 Feb  5 13:47 modemGPS -> ttyUSB1
+lrwxrwxrwx 1 root   root           7 Feb  5 13:47 modemPPP -> ttyUSB3
+lrwxrwxrwx 1 root   root           7 Feb  5 13:47 modemS0 -> ttyUSB0
+lrwxrwxrwx 1 root   root           7 Feb  5 13:47 modemS1 -> ttyUSB1
+lrwxrwxrwx 1 root   root           7 Feb  5 13:47 modemS2 -> ttyUSB2
+lrwxrwxrwx 1 root   root           7 Feb  5 13:47 modemS3 -> ttyUSB3
+
+
+
+Bus 002 Device 004: ID 1e0e:9001 Qualcomm / Option SimTech, Incorporated
+Bus 002 Device 002: ID 0424:2514 Microchip Technology, Inc. (formerly SMSC) USB 2.0 Hub
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+
+[    0.124375] usbcore: registered new interface driver usbfs
+[    0.124447] usbcore: registered new interface driver hub
+[    0.124510] usbcore: registered new device driver usb
+[    0.222848] usbcore: registered new interface driver pegasus
+[    0.222939] usbcore: registered new interface driver asix
+[    0.222995] usbcore: registered new interface driver ax88179_178a
+[    0.223046] usbcore: registered new interface driver cdc_ether
+[    0.223123] usbcore: registered new interface driver smsc75xx
+[    0.223192] usbcore: registered new interface driver smsc95xx
+[    0.223241] usbcore: registered new interface driver net1080
+[    0.223290] usbcore: registered new interface driver cdc_subset
+[    0.223351] usbcore: registered new interface driver zaurus
+[    0.223468] usbcore: registered new interface driver cdc_ncm
+[    0.225704] usbcore: registered new interface driver usb-storage
+[    0.225852] usbcore: registered new interface driver usbserial_generic
+[    0.225897] usbserial: USB Serial support registered for generic
+[    0.225970] usbcore: registered new interface driver option
+[    0.226009] usbserial: USB Serial support registered for GSM modem (1-port)
+[    0.226057] usbcore: registered new interface driver qcaux
+[    0.226092] usbserial: USB Serial support registered for qcaux
+[    0.226138] usbcore: registered new interface driver qcserial
+[    0.226173] usbserial: USB Serial support registered for Qualcomm USB modem
+[    0.226454] usbcore: registered new device driver onboard-usb-hub
+[    0.238668] usbcore: registered new interface driver usbhid
+[    0.238682] usbhid: USB HID core driver
+[    2.166217] stm32-usbphyc 5a006000.usbphyc: registered rev:1.0
+[    2.172972] dwc2 49000000.usb-otg: supply vusb_d not found, using dummy regulator
+[    2.175700] ohci-platform 5800c000.usb: Generic Platform OHCI controller
+[    2.179373] dwc2 49000000.usb-otg: supply vusb_a not found, using dummy regulator
+[    2.185875] ohci-platform 5800c000.usb: new USB bus registered, assigned bus number 1
+[    2.201447] dwc2 49000000.usb-otg: EPs: 9, dedicated fifos, 952 entries in SPRAM
+[    2.208776] ohci-platform 5800c000.usb: irq 78, io mem 0x5800c000
+[    2.217548] ehci-platform 5800d000.usb: EHCI Host Controller
+[    2.221989] ehci-platform 5800d000.usb: new USB bus registered, assigned bus number 2
+[    2.231417] ehci-platform 5800d000.usb: irq 80, io mem 0x5800d000
+[    2.259810] ehci-platform 5800d000.usb: USB 2.0 started, EHCI 1.00
+[    2.559832] usb 2-1: new high-speed USB device number 2 using ehci-platform
+[    3.099941] usb 2-1.4: new high-speed USB device number 3 using ehci-platform
+[    3.272442] usb 2-1.4: GSM modem (1-port) converter now attached to ttyUSB0
+[    3.285489] usb 2-1.4: GSM modem (1-port) converter now attached to ttyUSB1
+[    3.298514] usb 2-1.4: GSM modem (1-port) converter now attached to ttyUSB2
+[    3.316357] usb 2-1.4: GSM modem (1-port) converter now attached to ttyUSB3
+[    3.328595] usb 2-1.4: GSM modem (1-port) converter now attached to ttyUSB4
+[    7.613698] usb 2-1.4: USB disconnect, device number 3
+[   14.159955] usb 2-1.4: new high-speed USB device number 4 using ehci-platform
+[   14.405382] usb 2-1.4: GSM modem (1-port) converter now attached to ttyUSB0
+[   14.485915] usb 2-1.4: GSM modem (1-port) converter now attached to ttyUSB1
+[   14.515482] usb 2-1.4: GSM modem (1-port) converter now attached to ttyUSB2
+[   14.549288] usb 2-1.4: GSM modem (1-port) converter now attached to ttyUSB3
+[   14.566502] usb0: HOST MAC d0:0a:bc:1e:06:2d
+[   14.569393] usb0: MAC 46:aa:7b:72:90:d7
+[   14.582039] usb 2-1.4: GSM modem (1-port) converter now attached to ttyUSB4
+[   14.582439] dwc2 49000000.usb-otg: bound driver configfs-gadget.g1
+[   15.679624] usbcore: registered new interface driver cdc_wdm
+[   15.801789] qmi_wwan 2-1.4:1.5 wwan0: register 'qmi_wwan' at usb-5800d000.usb-1.4, WWAN/QMI device, 0e:6f:b9:a4:34:1c
+[   15.870483] usbcore: registered new interface driver qmi_wwan
+
+
+T:  Bus=02 Lev=02 Prnt=02 Port=03 Cnt=01 Dev#=  4 Spd=480  MxCh= 0
+D:  Ver= 2.00 Cls=00(>ifc ) Sub=00 Prot=00 MxPS=64 #Cfgs=  1
+P:  Vendor=1e0e ProdID=9001 Rev=03.18
+S:  Manufacturer=SimTech, Incorporated
+S:  Product=SimTech, Incorporated
+S:  SerialNumber=0123456789ABCDEF
+C:  #Ifs= 6 Cfg#= 1 Atr=a0 MxPwr=500mA
+I:  If#= 0 Alt= 0 #EPs= 2 Cls=ff(vend.) Sub=ff Prot=ff Driver=option
+E:  Ad=01(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=81(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+I:  If#= 1 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=00 Prot=00 Driver=option
+E:  Ad=02(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=82(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=83(I) Atr=03(Int.) MxPS=  10 Ivl=32ms
+I:  If#= 2 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=00 Prot=00 Driver=option
+E:  Ad=03(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=84(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=85(I) Atr=03(Int.) MxPS=  10 Ivl=32ms
+I:  If#= 3 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=00 Prot=00 Driver=option
+E:  Ad=04(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=86(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=87(I) Atr=03(Int.) MxPS=  10 Ivl=32ms
+I:  If#= 4 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=00 Prot=00 Driver=option
+E:  Ad=05(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=88(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=89(I) Atr=03(Int.) MxPS=  10 Ivl=32ms
+I:  If#= 5 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=ff Prot=ff Driver=qmi_wwan
+E:  Ad=06(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=8a(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=8b(I) Atr=03(Int.) MxPS=   8 Ivl=32ms

@@ -1,0 +1,53 @@
+From gsm device:
+
+
+root@stm32mp1:~# ssh -N -R 0.0.0.0:1991:localhost:22 crystic@78.62.254.57 -p 1990
+Host '78.62.254.57' is not in the trusted hosts file.
+(ssh-ed25519 fingerprint SHA256:OL0rTY/ijfm5CSdsi7jUjeGDA7W0EgNzeP6yyii1fG0)
+Do you want to continue connecting? (y/n) y
+crystic@78.62.254.57's password:
+
+--------------------------------------------
+
+ssh 
+-N (Do not execute a remote command. This is useful for just forwarding ports)
+-R (Specifies that the given port on the remote (server) host is to be forwarded to the given host and port on the local side.)
+0.0.0.0 (can be empty)
+1991 (allocating a socket to listen to port on the remote side)
+localhost (host)
+22 (hostport)
+crystic@78.62.254.57 (proxy server user@ip adress)
+-p 1990 (Port to connect to on the remote host)
+
+---------------------------------------------
+
+
+
+From local computer connecting to gsm device:
+
+PS C:\Users\Crystic> ssh root@78.62.254.57 -p 1991
+The authenticity of host '[78.62.254.57]:1991 ([78.62.254.57]:1991)' can't be established.
+RSA key fingerprint is SHA256:YP6BUNG9FaKnRRz9RQ454K9NY90KqlYFwBsioU3N3LQ.
+This host key is known by the following other names/addresses:
+    C:\Users\Crystic/.ssh/known_hosts:19: 192.168.0.174
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[78.62.254.57]:1991' (RSA) to the list of known hosts.
+
+root@stm32mp1:~# ls
+README-CHECK-GPU
+root@stm32mp1:~# whoami
+root
+
+
+From proxy server
+
+Might need to open 1990 port
+
+iptables -A INPUT -p TCP --dport 1990 -j ACCEPT
+
+/etc/ssh/sshd_config
+
+Port 22
+Port 1990
+AllowTcpForwarding yes
+GatewayPorts yes
